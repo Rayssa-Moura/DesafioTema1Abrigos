@@ -48,7 +48,7 @@ Os dados são previamente cadastrados no banco de dados, e o sistema permite atu
 
 ### 🔹 Front-end
 
-* Interface simples com HTML, CSS e JavaScript
+* Interface simples com HTML e CSS
 * Exibição dos abrigos em formato de cards (caixas)
 * Indicação visual de status:
 
