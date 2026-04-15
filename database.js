@@ -1,8 +1,10 @@
 const sqlite3 = require("sqlite3");
 const { open } = require("sqlite");
 
+let db;
+
 const criarBanco = async () => {
-  const db = await open({
+  db = await open({
     filename: "./database.db",
     driver: sqlite3.Database,
   });
@@ -18,15 +20,21 @@ const criarBanco = async () => {
     );
   `);
 
-  await db.exec(`
-    INSERT INTO abrigos 
-    (nome, endereco, capacidade_total, capacidade_atual, doacoes_necessarias) VALUES
-("Escola Professor Otávio Terceiro de Farias", "Rua 1, Bairro Mondubim, Fortaleza - CE, CEP 60762401", 100, 80, "água, alimentos"),
-("Ginásio da Parangaba", "Rua 2, Bairro Conjunto Ceará, Fortaleza - CE, CEP 60762402", 50, 50, "roupas, cobertores"),
-("Igreja Trindade", "Rua 3, Bairro José Walter, Fortaleza - CE, CEP 60762403", 70, 20, "alimentos, produtos de higiene");
-  `);
+  const dados = await db.get("SELECT COUNT(*) as total FROM abrigos");
 
-  console.log("Banco pronto com dados!");
+  if (dados.total === 0) {
+    await db.exec(`
+      INSERT INTO abrigos 
+      (nome, endereco, capacidade_total, capacidade_atual, doacoes_necessarias) VALUES
+      ("Escola Professor Otávio", "Rua 1", 100, 80, "água"),
+      ("Ginásio", "Rua 2", 50, 50, "roupas"),
+      ("Igreja", "Rua 3", 70, 20, "alimentos");
+    `);
+  }
+
+  console.log("Banco pronto!");
 };
 
-module.exports = criarBanco;
+const getDB = () => db;
+
+module.exports = { criarBanco, getDB };
