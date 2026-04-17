@@ -27,11 +27,13 @@ const criarBanco = async () => {
       INSERT INTO abrigos 
       (nome, endereco, capacidade_total, capacidade_atual, doacoes_necessarias) VALUES
       ("Escola Professor Otávio", "Rua 1", 100, 80, "água"),
-      ("Ginásio", "Rua 2", 50, 50, "roupas"),
-      ("Igreja", "Rua 3", 70, 20, "alimentos");
+      ("Ginásio da Parangaba", "Rua 2", 50, 50, "roupas"),
+      ("Igreja Trindade", "Rua 3", 70, 20, "alimentos");
     `);
   }
 
+const tabela = await db.all("SELECT * FROM abrigos");
+console.table(tabela);
   console.log("Banco pronto!");
 };
 

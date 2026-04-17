@@ -43,7 +43,7 @@ Os dados são previamente cadastrados no banco de dados, e o sistema permite atu
 
 ### 🔹 Banco de Dados
 
-* MySQL
+* SQLite
 * Armazena os dados dos abrigos
 
 ### 🔹 Front-end

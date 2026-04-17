@@ -7,7 +7,31 @@
 </head>
 <body>
 
-  <h1> Abrigos</h1>
+  <h1>Locais para Doação</h1>
+
+  <div id="lista"></div>
+
+  <script>
+    fetch("http://localhost:3000/abrigos")
+      .then(res => res.json())
+      .then(abrigos => {
+        const lista = document.getElementById("lista");
+
+        abrigos.forEach(abrigo => {
+          const card = document.createElement("div");
+          card.className = "card " + (abrigo.status === "Disponível" ? "disponivel" : "lotado");
+
+          card.innerHTML = `
+            <h2>${abrigo.nome}</h2>
+            <p>${abrigo.endereco}</p>
+            <p>Vagas: ${abrigo.capacidade_atual} / ${abrigo.capacidade_total}</p>
+            <span class="status">${abrigo.status}</span>
+          `;
+
+          lista.appendChild(card);
+        });
+      });
+  </script>
 
 </body>
 </html>
