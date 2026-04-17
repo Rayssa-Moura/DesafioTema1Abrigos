@@ -85,8 +85,8 @@ node app.js
 ```
 
 A API estará disponível em:
-http://localhost:3000
-
+http://localhost:3000/abrigos
+http://localhost:3000/disponíveis
 ---
 
 ## 🧠 8. Considerações Finais
