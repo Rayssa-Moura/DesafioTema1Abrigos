@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <h1>Locais para Doação</h1>
+  <h1>Abrigos</h1>
 
   <div id="lista"></div>
 
@@ -22,11 +22,12 @@
           card.className = "card " + (abrigo.status === "Disponível" ? "disponivel" : "lotado");
 
           card.innerHTML = `
-            <h2>${abrigo.nome}</h2>
-            <p>${abrigo.endereco}</p>
-            <p>Vagas: ${abrigo.capacidade_atual} / ${abrigo.capacidade_total}</p>
-            <span class="status">${abrigo.status}</span>
-          `;
+  <h2>${abrigo.nome}</h2>
+  <p>${abrigo.endereco}</p>
+  <p>Vagas: ${abrigo.capacidade_atual} / ${abrigo.capacidade_total}</p>
+  <p>Doações necessárias: ${abrigo.doacoes_necessarias}</p>
+  <span class="status">${abrigo.status}</span>
+`;
 
           lista.appendChild(card);
         });

@@ -1,5 +1,4 @@
-Falta a parte dos cards no CSS! Cola isso no final do style.css:
-css.card {
+.card {
   background: #ffffff;
   border-radius: 12px;
   padding: 1.5rem;

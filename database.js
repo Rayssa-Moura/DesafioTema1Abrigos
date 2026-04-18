@@ -23,13 +23,13 @@ const criarBanco = async () => {
   const dados = await db.get("SELECT COUNT(*) as total FROM abrigos");
 
   if (dados.total === 0) {
-    await db.exec(`
-      INSERT INTO abrigos 
-      (nome, endereco, capacidade_total, capacidade_atual, doacoes_necessarias) VALUES
-      ("Escola Professor Otávio", "Rua 1", 100, 80, "água"),
-      ("Ginásio da Parangaba", "Rua 2", 50, 50, "roupas"),
-      ("Igreja Trindade", "Rua 3", 70, 20, "alimentos");
-    `);
+   await db.exec(`
+  INSERT INTO abrigos 
+  (nome, endereco, capacidade_total, capacidade_atual, doacoes_necessarias) VALUES
+  ("Escola Professor Otávio", "EEM Professor Otávio Terceiro de C, R. Antônio Farias - Prefeito José Walter, CE", 1000, 800, "água"),
+  ("Ginásio da Parangaba", "R. Ildefonso Albano, 2050 - Dionísio Torres, Fortaleza - CE, 60115-000", 500, 500, "roupas"),
+  ("Igreja Trindade", "Av. Gen. Osório de Paiva - Parangaba, Fortaleza - CE, 60720-000", 700, 200, "alimentos");
+`);
   }
 
 const tabela = await db.all("SELECT * FROM abrigos");
