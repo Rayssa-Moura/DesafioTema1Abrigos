@@ -81,7 +81,7 @@ O status do abrigo é definido automaticamente:
 
 ```bash
 npm install
-node app.js
+npm run dev
 ```
 
 A API estará disponível em:
